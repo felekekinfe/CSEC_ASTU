@@ -14,5 +14,11 @@ class AddMembersView(CreateView):
     form_class=MembersRegistrationForm
     template_name='add_member.html'
 
+class AddEventsView(CreateView):
+    model=Events
+    template_name='add_events.html'
+    fields='__all__'
+    
+
 
 
