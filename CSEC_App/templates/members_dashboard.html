@@ -1,4 +1,50 @@
 
 
 
+
+{% extends 'base.html' %}
+
 {{object_list}}
+
+{% block content %}
+
+<div class="container">
+  
+</br>
+
+</br>
+
+    <div class="container">
+
+        <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr class="row">
+                <th class="col-2">Name</th>
+                <th class="col-3">Email</th>
+                <th class="col-3">Department</th>
+                <th class="col-2">Roll</th>
+                <th class="col-1">Edit</th>
+                <th class="col-1">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+        {% if object_list %}
+            {% for member in object_list %}  
+                   
+                        <tr class="table-success row">
+                          
+                            <td class="col-10">{{member}}</td>
+    
+                            <td class="col-1"><a href="#"><button type="button" class="btn btn-warning">Edit</button></a></td>
+                            <td class="col-1"><a href="#"><button type="button" class="btn btn-danger">Delete</button></a></td>
+                          </tr>
+                   
+                   
+
+              {% endfor %}
+              {% endif %}
+                        </tbody>
+                </table>
+    </div>
+  
+{% endblock content %}
