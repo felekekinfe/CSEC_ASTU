@@ -10,7 +10,7 @@ class HomeView(ListView):
     template_name='members_dashboard.html'
 class EventsView(ListView):
     model=Events
-    template_name='events_member.html'
+    template_name='events_dashboard.html'
 
 class AddMembersView(CreateView):
     model=Members
