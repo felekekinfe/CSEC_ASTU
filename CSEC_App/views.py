@@ -14,6 +14,10 @@ class AddMembersView(CreateView):
     form_class=MembersRegistrationForm
     template_name='add_member.html'
 
+class EditMemberProfile(UpdateView):
+    model=Members
+    fields='__all__'
+    template_name='edit_member_profile.html'
 class DeleteMember(DeleteView):
     model=Members
     template_name='delete_member.html'
