@@ -26,6 +26,8 @@ class EventDetailView(DetailView):
     model=Events
     template_name='events_detail.html'
 
+    
+
 class AddEventsView(CreateView):
     model=Events
     template_name='add_events.html'
