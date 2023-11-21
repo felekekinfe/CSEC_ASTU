@@ -31,7 +31,7 @@ class AddEventsView(CreateView):
     template_name='add_events.html'
     fields='__all__'
 
-class AddEventsView(DeleteView):
+class DeleteEventsView(DeleteView):
     model=Events
     template_name='delete_events.html'
     
@@ -39,6 +39,6 @@ class AddEventsView(DeleteView):
 
 
     
-
+#add redirection
 
 
