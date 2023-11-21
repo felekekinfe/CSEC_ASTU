@@ -11,6 +11,9 @@ class HomeView(ListView):
 class EventsView(ListView):
     model=Events
     template_name='events_dashboard.html'
+class EventDetailView(DetailView):
+    model=Events
+    template_name='events_detail.html'
 
 class AddMembersView(CreateView):
     model=Members
@@ -26,6 +29,7 @@ class DeleteMember(DeleteView):
     model=Members
     template_name='delete_member.html'
     
+
 
 
     
