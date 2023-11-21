@@ -22,6 +22,11 @@ class AddEventsView(CreateView):
     template_name='add_events.html'
     fields='__all__'
 
+class DeleteMember(DeleteView):
+    model=Members
+    template_name='delete_member.html'
+    
+
 
     
 
