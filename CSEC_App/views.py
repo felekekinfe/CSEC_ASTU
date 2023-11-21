@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import UpdateView,CreateView,DeleteView,ListView,DetailView
 from .models import Members,Events
-from .forms import MembersRegistrationForm
+from .forms import MembersRegistrationForm,AddEventForm
 
 # Create your views here.
 
@@ -26,12 +26,12 @@ class EventDetailView(DetailView):
     model=Events
     template_name='events_detail.html'
 
-    
+
 
 class AddEventsView(CreateView):
     model=Events
     template_name='add_events.html'
-    fields='__all__'
+    form_class=AddEventForm
 
 class DeleteEventsView(DeleteView):
     model=Events
