@@ -11,9 +11,9 @@ class HomeView(ListView):
     template_name='members_dashboard.html'
 
 class AddMembersView(CreateView):
-    model=Members
     form_class=MembersRegistrationForm
     template_name='add_member.html'
+    success_url=reverse_lazy('homepage')
 
 class EditMemberProfile(UpdateView):
     model=Members
