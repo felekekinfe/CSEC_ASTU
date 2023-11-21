@@ -35,8 +35,8 @@
                           
                             <td class="col-10">{{member}}</td>
     
-                            <td class="col-1"><a href="#"><button type="button" class="btn btn-warning">Edit</button></a></td>
-                            <td class="col-1"><a href="#"><button type="button" class="btn btn-danger">Delete</button></a></td>
+                            <td class="col-1"><a href="{% url 'editmember' member.id%}"><button type="button" class="btn btn-warning">Edit</button></a></td>
+                            <td class="col-1"><a href="{% url 'deletemember' member.id %}"><button type="submit" class="btn btn-danger">Delete</button></a></td>
                           </tr>
                    
                    
