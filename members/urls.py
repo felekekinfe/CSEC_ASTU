@@ -1,7 +1,9 @@
 
-
+from django.urls import path
+from .views import MembersLoginView
 
 urlpatterns = [
-  
-
+    path('login/',MembersLoginView.as_view(),name='login'),
+     #path('edit_profile/<int:pk>',EditMemberView.as_view(),name='edit')
+    
 ]
