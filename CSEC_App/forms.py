@@ -12,3 +12,9 @@ class MembersRegistrationForm(UserCreationForm):
     
 
 
+class AddEventForm(forms.ModelForm):
+
+    class Meta:
+        model=Events
+        fields=['title','description','date','time','venue','organizer']
+
