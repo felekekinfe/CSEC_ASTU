@@ -24,6 +24,7 @@ class Events(models.Model):
     time=models.TimeField()
     venue=models.CharField(max_length=200)
     organizer=models.CharField(max_length=100)
+    created_at=models.DateTimeField(auto_now_add=True)
     class Meta:
         verbose_name_plural='Events'
         

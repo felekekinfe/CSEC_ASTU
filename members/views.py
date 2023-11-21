@@ -7,7 +7,6 @@ from django.urls import reverse_lazy
 # Create your views here.
 
 class MembersLoginView(LoginView):
-    model=Members
     template_name='login_member.html'
     form_class=MemberLoginForm
     success_url=reverse_lazy('homepage')
