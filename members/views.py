@@ -6,6 +6,7 @@ from .forms import MemberLoginForm
 
 class MembersLoginView(LoginView):
     model=Members
+    template_name='login.html'
     form_class=MemberLoginForm
 
     #add redirection
