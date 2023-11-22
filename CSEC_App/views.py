@@ -28,6 +28,7 @@ class DeleteMember(DeleteView):
 class EventsView(ListView):
     model=Events
     template_name='events_dashboard.html'
+    ordering=['-created_at']
 
 class EventDetailView(DetailView):
     model=Events
@@ -44,6 +45,7 @@ class AddEventsView(CreateView):
 class DeleteEventsView(DeleteView):
     model=Events
     template_name='delete_events.html'
+    success_url=reverse_lazy('events')
     
 
 

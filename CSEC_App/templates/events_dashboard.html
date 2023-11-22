@@ -15,11 +15,12 @@
         <h5 class="mb-1">{{event.title}}</h5>
         <small>{{event.created_at}}</small>
       </div>
-      <p class="mb-1">{{event.description}}</p>
-      <small>Read More...</small>
+      
+      <a href="{% url 'eventdetail' event.pk %}"><small>Read More...</small></a>
+      <a href="{% url 'deleteevents' event.pk %}"><button type='submit' class="btn btn-danger"><small>Delete Event...</small></button></a>
     </a>
     
-  </div></br>
+  </div>
 
   {% endfor %}
 {% endblock content%}
