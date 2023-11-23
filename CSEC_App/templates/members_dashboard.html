@@ -252,7 +252,7 @@
 				<table class="table user-list">
 					<thead>
 						<tr>
-							<th><span>User</span></th>
+							<th><span>Member</span></th>
 							<th><span>Created</span></th>
 							<th class="text-center"><span>Department</span></th>
 							<th><span>Email</span></th>
@@ -266,11 +266,14 @@
 								{% if member.profile_pic %}
 								<img src="{{member.profile_pic.url}}" >
 								{% endif %}
+								{% if user.is_staff %}
 								<a href="{% url 'userprofile' member.id %}" class="user-link">{{member.username}}</a>
+								{% endif %}
+								<p class="user-link">{{member.username}}</p>
 								<span class="user-subhead">{{member.Roll}}</span>
 							</td>
 							<td>
-								{{member.created_at}}
+								{{member.joined}}
 							</td>
 							<td class="text-center">
 								<span class="label label-default">{{member.department}}</span>
@@ -304,7 +307,7 @@
 </div>
 </div>
 
-
+{{year}}
 {% endfor %}
 {% endif %}
 

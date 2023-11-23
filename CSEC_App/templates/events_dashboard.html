@@ -23,7 +23,7 @@
   </div>
 
   {% endfor %} {% endcomment %}
-
+{% if user.is_authenticated %}
 <style>
   @import url('https://fonts.googleapis.com/css?family=Oswald');
 * {
@@ -76,10 +76,11 @@ h1 {
 
 .date {
     display: table-cell;
-    width: 25%;
+    width: 90%;
+    height: 300%
     position: relative;
     text-align: center;
-    border-right: 2px dashed #dadde6
+    border-right: -600px dashed #dadde6
 }
 
 .date:before,
@@ -226,17 +227,17 @@ h1 {
 {% for event in object_list  %}
 </style>
 
-  <section class="container">
+  <section class="container" >
     <h1>Events</h1>
-      <div class="row">
+      <div class="row" >
         <article class="card fl-left">
           <section class="date">
             <time datetime="23th feb">
-              <span>23</span><span>feb</span>
+              <small><span>{{event.date}}</span></small>
             </time>
           </section>
           <section class="card-cont">
-            <small>dj khaled</small>
+            <small>{{event.organizer}}</small>
             <h3>{{event.title}}</h3>
             <div class="even-date">
              <i class="fa fa-calendar"></i>
@@ -251,18 +252,23 @@ h1 {
                 {{event.venue}}
               </p>
             </div>
-            <a href="#">tickets</a>
+            <a href="{% url 'eventdetail' event.id %}">Read...</a>
             
           </section>
-          <a href="#" class=".delete">Delete</a>
+          {% if user.is_staff %}
+          <a href="{% url 'deleteevents' event.id %}" class="btn btn-danger">Delete</a>
+          {% endif %}
         </article>
-        <article class="card fl-left">
+        <article >
           
         </article>
      
       </div>
     </section>
 
+  
+
 
 {% endfor %}
+{% endif %}
 {% endblock content%}

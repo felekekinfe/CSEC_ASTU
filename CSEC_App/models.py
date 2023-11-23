@@ -11,6 +11,7 @@ class Members(AbstractUser):
     profile_pic=models.ImageField(null=True,blank=True,upload_to='profile_image')
     
     
+    
     def __str__(self):
         
         return self.first_name
@@ -25,7 +26,7 @@ class Events(models.Model):
     date=models.DateTimeField()
     time=models.TimeField()
     venue=models.CharField(max_length=200)
-    organizer=models.CharField(max_length=100)
+    organizer=models.CharField(max_length=100,default="CSEC_Dev")
     created_at=models.DateTimeField(auto_now_add=True)
     
     class Meta:

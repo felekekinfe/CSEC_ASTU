@@ -3,7 +3,7 @@
 {{userprofile.email}}
 
 
-
+{% if user.is_authenticated %}
 
 <style>
     body{
@@ -448,7 +448,8 @@
                      <div class="profile-header-info">
                         <h4 class="m-t-10 m-b-5">{{userprofile.username}}</h4>
                         <p class="m-b-10">{{userprofile.roll}}</p>
-                        <a href="#" class="btn btn-xs btn-success">Edit Profile</a>
+
+                        <a href="{% url 'editmember' user.id%}" class="btn btn-xs btn-success">Edit Profile</a>
                      </div>
                      <!-- END profile-header-info -->
                   </div>
@@ -551,7 +552,7 @@
 
 
 
-
+{% endif %}
 
 
 {% endblock content %}

@@ -4,14 +4,13 @@ from .models import Members,Events
 from .forms import MembersRegistrationForm,AddEventForm
 from django.urls import reverse_lazy
 from django.db.models import Q
-
+from datetime import datetime
 # Create your views here.
 
 class HomeView(ListView):
     model=Members
     template_name='members_dashboard.html'
-    
-
+  
 class AddMembersView(CreateView):
     form_class=MembersRegistrationForm
     template_name='add_member.html'
@@ -69,3 +68,7 @@ def search(request):
     
     else:
             return render(request, 'members_dashboard.html')
+
+
+def about_us(request):
+    return render(request, 'About us.html')
