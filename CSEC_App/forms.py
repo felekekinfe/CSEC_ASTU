@@ -8,9 +8,9 @@ class MembersRegistrationForm(UserCreationForm):
     
     class Meta:
         model=Members
-        fields=['first_name','last_name','email','department','Roll','password1','password2']
+        fields=['username','first_name','last_name','email','department','profile_pic','Roll','profile_pic','password1','password2']
     
-
+    
 
 class AddEventForm(forms.ModelForm):
 

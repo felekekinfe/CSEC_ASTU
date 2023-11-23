@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views.generic import UpdateView,CreateView,DeleteView,ListView,DetailView
 from .models import Members,Events
 from .forms import MembersRegistrationForm,AddEventForm
@@ -9,11 +9,13 @@ from django.urls import reverse_lazy
 class HomeView(ListView):
     model=Members
     template_name='members_dashboard.html'
+    
 
 class AddMembersView(CreateView):
     form_class=MembersRegistrationForm
     template_name='add_member.html'
     success_url=reverse_lazy('homepage')
+    
 
 class EditMemberProfile(UpdateView):
     model=Members
@@ -54,3 +56,13 @@ class DeleteEventsView(DeleteView):
 #add redirection
 
 
+
+def search(request):
+    if request.method=='POST':
+        data=request.POST["search_user"]
+        member=Members.objects.get(username=data)
+        if member:
+            return render(request, '/home/tor/Desktop/CSEC_Entrance/CSEC_App/templates/search_member.html',{'member':member})
+        else:
+            return render(request, 'no_member.html')
+    

@@ -10,22 +10,30 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'events' %}">Events</a>
         </li>
         <li class="nav-item">
+          {% if user.is_staff %}
           <a class="nav-link active" aria-current="page" href="{% url 'addmember' %}">Add Member</a>
+          {% endif %}
         </li>
         <li class="nav-item">
+          {% if user.is_staff %}
           <a class="nav-link active" aria-current="page" href="{% url 'addevent' %}">Add Events</a>
+          {% endif %}
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
         </li>
       </ul>
 authentication required
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form method='post' class="d-flex" role="search" action="{% url 'search_member' %}">
+        {% csrf_token %}
+        <input class="form-control me-2" type="search" name='search_user' placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit" >Search</button>
       </form>
 
     </div>

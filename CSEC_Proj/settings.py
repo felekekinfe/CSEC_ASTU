@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'CSEC_App',
     'members',
-    'crispy_forms'
+    'crispy_forms',
+    'bootstrap4'
 ]
 
 MIDDLEWARE = [
@@ -113,13 +114,14 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
-
+CRISPY_TEMPLATE_PACK='bootstrap4'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
-
+MEDIA_URL='media/'
+MEDIA_ROOT=f'{BASE_DIR}/media'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -127,3 +129,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL='CSEC_App.Members'
 
 LOGOUT_REDIRECT_URL='login'
+
+

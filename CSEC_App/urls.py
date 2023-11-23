@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import HomeView,AddMembersView,AddEventsView,EventsView,EventDetailView,DeleteMember,DeleteEventsView,EditMemberProfile
+from .views import search,HomeView,AddMembersView,AddEventsView,EventsView,EventDetailView,DeleteMember,DeleteEventsView,EditMemberProfile
 
 urlpatterns = [
     path('',HomeView.as_view(),name='homepage'),
@@ -9,9 +9,9 @@ urlpatterns = [
     path('event_detail/<int:pk>',EventDetailView.as_view(),name='eventdetail'),
     path('delete_member/<int:pk>',DeleteMember.as_view(),name='deletemember'),
     path('edit_member/<int:pk>',EditMemberProfile.as_view(),name='editmember'),
-    path('delet_events/<int:pk>',DeleteEventsView.as_view(),name='deleteevents')
+    path('delet_events/<int:pk>',DeleteEventsView.as_view(),name='deleteevents'),
 
-
+    path('search_member',search,name='search_member')
 
 
 ]
