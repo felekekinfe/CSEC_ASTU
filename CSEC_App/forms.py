@@ -8,7 +8,7 @@ class MembersRegistrationForm(UserCreationForm):
     
     class Meta:
         model=Members
-        fields=['username','first_name','last_name','email','department','profile_pic','Roll','profile_pic','password1','password2']
+        fields=['username','first_name','last_name','email','department','profile_pic','Roll','profile_pic','password1','password2','is_staff']
     
     
 

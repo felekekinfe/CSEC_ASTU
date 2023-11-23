@@ -3,6 +3,7 @@ from django.views.generic import UpdateView,CreateView,DeleteView,ListView,Detai
 from .models import Members,Events
 from .forms import MembersRegistrationForm,AddEventForm
 from django.urls import reverse_lazy
+from django.db.models import Q
 
 # Create your views here.
 
@@ -59,10 +60,12 @@ class DeleteEventsView(DeleteView):
 
 def search(request):
     if request.method=='POST':
-        data=request.POST["search_user"]
-        member=Members.objects.get(username=data)
+        data=request.POST.get("search_user")
+        member=Members.objects.filter(Q(username__icontains=data))
         if member:
-            return render(request, '/home/tor/Desktop/CSEC_Entrance/CSEC_App/templates/search_member.html',{'member':member})
+            return render(request, 'search_member.html',{'member':member})
         else:
             return render(request, 'no_member.html')
     
+    else:
+            return render(request, 'members_dashboard.html')

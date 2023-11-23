@@ -4,7 +4,7 @@ from CSEC_App.models import Members
 
 
 class MemberLoginForm(AuthenticationForm):
-
+    
     class Meta:
         model=Members
         fields=['email','password']

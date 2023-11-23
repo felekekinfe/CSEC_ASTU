@@ -4,9 +4,11 @@
 
 
 {% block content %}
+{% if user.is_staff%}
 <form method='Post'>
     {% csrf_token %}
     {{form.as_p}}
     <button type='submit'>Add Event</button>
 </form>
+{% endif %}
 {% endblock content %}

@@ -1,12 +1,11 @@
-
-
-
-
 {% extends 'base.html' %}
 
 {{object_list}}
 
 {% block content %}
+
+{% if user.is_authenticated %}
+
 <style>
   body{margin-top:20px;}
 
@@ -234,6 +233,11 @@
 
 
 
+<li class="nav-item">
+          {% if request.user.email == member.email %}
+          <a class="nav-link active" aria-current="page" href="{% url 'userprofile' member.id %}">Profile</a>
+          {% endif %}
+        </li>
 
    {% if object_list %}
    
@@ -263,7 +267,7 @@
 								<img src="{{member.profile_pic.url}}" >
 								{% endif %}
 								<a href="{% url 'userprofile' member.id %}" class="user-link">{{member.username}}</a>
-								<span class="user-subhead">Admin</span>
+								<span class="user-subhead">{{member.Roll}}</span>
 							</td>
 							<td>
 								{{member.created_at}}
@@ -272,7 +276,7 @@
 								<span class="label label-default">{{member.department}}</span>
 							</td>
 							<td>
-	EMAIL							<a href="#">{{member.email}}</a>
+							<a href="#">{{member.email}}</a>
 							</td>
 							<td style="width: 20%;" >
 								{% if user.is_staff %}
@@ -303,7 +307,10 @@
 
 {% endfor %}
 {% endif %}
+
+{% endif %}
 {% endblock content %}
+
 
 
 
