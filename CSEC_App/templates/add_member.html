@@ -2,11 +2,15 @@
 
 {% block content %}
 {% if user.is_staff%}
-<form method='Post'>
-    {% csrf_token %}
-    {{form.as_p}}
-   <a href="{% url 'homepage' %}"> <button type='submit'>Add Member</button></a>
-</form>
+
+<div class="registration-container">
+    <h2>Register New Member</h2>
+    <form method="post" action="{% url 'homepage' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" >Register</button>
+    </form>
+</div>
 {% endif %}
 {% endblock content %}
 

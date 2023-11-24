@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser,AbstractBaseUser
 
 
 
@@ -8,9 +8,14 @@ class Members(AbstractUser):
     email=models.EmailField(unique=True)
     department=models.CharField(max_length=100)
     Roll=models.CharField(max_length=200)
-    profile_pic=models.ImageField(null=True,blank=True,upload_to='profile_image')
+    profile_pic=models.ImageField(upload_to='profile_image')
     
-    
+   
+
+            
+          
+          
+
     
     def __str__(self):
         
@@ -28,6 +33,9 @@ class Events(models.Model):
     venue=models.CharField(max_length=200)
     organizer=models.CharField(max_length=100,default="CSEC_Dev")
     created_at=models.DateTimeField(auto_now_add=True)
+    
+    
+    
     
     class Meta:
         verbose_name_plural='Events'

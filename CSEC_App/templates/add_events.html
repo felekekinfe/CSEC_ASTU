@@ -5,7 +5,7 @@
 
 {% block content %}
 {% if user.is_staff%}
-<form method='Post'>
+<form method='Post' enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}
     <button type='submit'>Add Event</button>

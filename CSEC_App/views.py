@@ -15,6 +15,8 @@ class AddMembersView(CreateView):
     form_class=MembersRegistrationForm
     template_name='add_member.html'
     success_url=reverse_lazy('homepage')
+
+
     
 
 class EditMemberProfile(UpdateView):
